@@ -14,12 +14,14 @@ function renderLicenseSection(license) {}
 function generateMarkdown(data) {
   const {title, titleDescription, languages, repoLink, deployedLink, contributors, description, installation, features, documentation, preview, previewDescription, license, tests, email} = data;
   uppercaseTitle = title.charAt(0).toUpperCase() + title.slice(1);
+  languagesSpaced = languages.join(', ');
 
   return `
   ## ${uppercaseTitle}
   *${titleDescription}*
 
-  ${languages}
+  ## Languages used
+  ${languagesSpaced}
 
   ## Links
   - [GitHub Repository](${repoLink})
@@ -28,7 +30,7 @@ function generateMarkdown(data) {
   ## Contributors
   - ${contributors}
 
-  ##Table of Contents
+  ## Table of Contents
   - [Description](#description)
   - [Installation](#installation)
   - [Features](#features)
