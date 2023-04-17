@@ -1,5 +1,3 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
 function renderLicenseBadge(license) {
   switch (license) {
     case 'MIT':
@@ -17,8 +15,6 @@ function renderLicenseBadge(license) {
   }
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
 function renderLicenseLink(license) {
     switch (license) {
         case 'MIT':
@@ -63,7 +59,6 @@ function renderLanguagesBadge(language) {
   }
 }
 
-// TODO: Create a function to generate markdown for README
 function generateMarkdown(dataObj) {
   let {title, titleDescription, languages, repoLink, deployedLink, contributors, description, installation, features, documentation, preview, previewDescription, license, tests, email} = dataObj;
   uppercaseTitle = title.charAt(0).toUpperCase() + title.slice(1);
@@ -92,11 +87,10 @@ function generateMarkdown(dataObj) {
     documentation = `[${documentation}](${documentation})`
   )
 
-  let imgPreview ='';
   if (preview === '') {
-    imgPreview = 'No preview provided.';
+    preview = 'No preview provided.';
   } else {
-    imgPreview = `![${previewDescription}](${preview})`
+    preview = `![${previewDescription}](${preview})`
   }
 
   let licenseLink = '';
@@ -150,7 +144,7 @@ ${featuresString}
 ${documentation}
 
 ## Application Preview
-${imgPreview}
+${preview}
 
 ## License
 ${licenseLink}

@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "dayjs": "^1.11.7",
-    "inquirer": "^8.2.5",
+    "inquirer": "^8.2.4",
     "inquirer-recursive": "^0.0.7"
   }
 }

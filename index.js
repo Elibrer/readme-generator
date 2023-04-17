@@ -1,4 +1,3 @@
-// TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown.js');
@@ -10,13 +9,9 @@ inquirer.registerPrompt('recursive', require('inquirer-recursive'));
 
 function renderYear() {
     const currentYear = dayjs().format('YYYY'); 
-    console.log(currentYear);
     return currentYear;  
 }
 
-// Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
-
-// TODO: Create an array of questions for user input
 const fileTypeQuestion = [
     {
         type: 'list',
@@ -133,7 +128,7 @@ const questions3 = [
 
 function writeToFile(type, fileName, data) {
     fs.writeFile(eval(`'./generated-files/${fileName}'`), eval(`generate${type}`)(data), (data), (err) =>
-    err ? console.error(err) : console.log("Success!")
+    err ? console.error(err) : console.log(`${fileName} creation success!`)
     );
 }
 
@@ -151,16 +146,10 @@ function createLicenseFile(data) {
     
     if (data.license !== ``) {
         fs.writeFile(`./generated-files/LICENSE.md`, generateLicense(data, contributorNames, year), (data), (err) =>
-        err ? console.error(err) : console.log("Success!")
+        err ? console.error(err) : console.log("License creation success!")
         );
     }
 }
-
-// License files
-// File location
-
-
-
 
 //The reason for multiple question objects is that 
 // for some reason the 'recursive' prompt prematurely ends 
@@ -206,5 +195,4 @@ function init() {
     })
 }
 
-// Function call to initialize app
 init();
